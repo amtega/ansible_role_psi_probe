@@ -46,19 +46,18 @@
       vars:
         psi_probe_instances: [ "tomcat" ]
   tasks:
-
-    - name: Check download war file exists
+    - name: Check war file
       stat:
         path: "/srv/tomcat/webapps/probe.war"
       changed_when: false
       register: psi_probe_download_file_result
 
-    - name: Ensure download war file exists
+    - name: Ensure war file exists
       assert:
         that:
           - psi_probe_download_file_result.stat.exists
 
-    - name: Check if autodeploy was successful
+    - name: Check deployment
       uri:
         url: http://localhost:8080/probe/
         return_content: yes
@@ -73,7 +72,6 @@
       assert:
         that:
           - psi_probe_deploy_result.status == 401
-
   tags:
     - idempotence
 

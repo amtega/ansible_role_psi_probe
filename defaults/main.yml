@@ -1,17 +1,41 @@
 ---
 # Role default lower priority variables
 
-# Variables to fill the artifact to download from maven central repository.
-# Values extracted from:
-# https://repo1.maven.org/maven2/com/github/psi-probe/psi-probe-web/maven-metadata.xml
+# Version to deploy
 
-psi_probe_war_version: 3.0.0
-psi_probe_maven_group_id: com.github.psi-probe
-psi_probe_maven_artifact_id: psi-probe-web
-psi_probe_war_file_extension: war
+psi_probe_version: 3.0.0
 
-# List of instances where psi-probe must be deployed. If the tomcat server
-# was deployed using amtega.tomcat role you can use the name of the instance as
-# value. If not, you must use the instance base path as value.
+# Deployment name to use
+
+psi_probe_name: probe
+
+# List of tomcat instances where psi-probe must be deployed. If the tomcat
+# server was deployed using amtega.tomcat role you can use the name of the
+# instance as value. If not, you must use the instance base path as value.
 
 psi_probe_instances: []
+
+# The role will try to identify the psi_probe artifact to download from the the
+# official site based on the variables defined previously.
+#
+# If you want to download the artifact from another repository yo need to
+# configure the `psi_probe_artifact` variable to point to a local/public
+# repository that contains the required artifact
+#
+# Take a look to `amtega.artifact` role documentation to known about supported
+# types of artifacts, their specific settings and how to configure a proxy if
+# necessary.
+
+psi_probe_artifact:
+  id: psi_probe_artifact
+  type: maven
+  group_id: com.github.psi-probe
+  artifact_id: psi-probe-web
+  host: http://central.maven.org
+  path: /maven2
+  extension: war
+  version: "{{ psi_probe_version}}"
+  dest: webapps
+  dest_file: "{{ psi_probe_name }}.war"
+  validate_certs: no
+  no_log: no
