@@ -17,3 +17,5 @@
     tomcat_application_name: "{{ psi_probe_name }}"
     tomcat_application_artifacts:
       - "{{ psi_probe_artifact }}"
+  tags:
+    - role::psi_probe
