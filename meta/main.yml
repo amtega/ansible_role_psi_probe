@@ -20,11 +20,14 @@ galaxy_info:
     - tomcat
     - jee
     - java
-    - webapps
-    - psi-probe
-
+    - psi
+    - probe
 
 dependencies:
+  - role: amtega.check_platform
+    tags:
+      - never
+
   - role: amtega.tomcat_application
     tags:
       - never

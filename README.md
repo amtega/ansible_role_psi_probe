@@ -1,6 +1,6 @@
 # Ansible psi_probe role
 
-This is an [Ansible](http://www.ansible.com) role to deploy psi-probe-web from maven central repository in tomcat instances.
+This is an [Ansible](http://www.ansible.com) role to deploy psi-probe-web tool into tomcat instances.
 
 ## Role Variables
 
