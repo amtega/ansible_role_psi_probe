@@ -1,14 +1,6 @@
 ---
 # Role tasks
 
-- include_role:
-    name: amtega.check_platform
-  vars:
-    check_platform_distributions:
-      centos: 7
-      fedora: 30
-      redhat: 7
-
 - name: Deploy psi_probe
   include_role:
     name: amtega.tomcat_application
