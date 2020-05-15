@@ -1,13 +1,2 @@
 ---
 # Role tasks
-
-- name: Deploy psi_probe
-  include_role:
-    name: amtega.tomcat_application
-  vars:
-    tomcat_application_instances: "{{ psi_probe_instances }}"
-    tomcat_application_name: "{{ psi_probe_name }}"
-    tomcat_application_artifacts:
-      - "{{ psi_probe_artifact }}"
-  tags:
-    - role::psi_probe
