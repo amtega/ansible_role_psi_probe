@@ -1,4 +1,5 @@
 ---
 
-roles: []
+roles:
+  - amtega.tomcat
 collections: []
