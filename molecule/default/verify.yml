@@ -1,0 +1,32 @@
+---
+
+- name: Verify
+  hosts: molecule_hosts
+  gather_facts: no
+  tasks:
+    - name: Check war file
+      stat:
+        path: "/srv/tomcat/webapps/probe.war"
+      changed_when: no
+      register: psi_probe_download_file_result
+
+    - name: Ensure war file exists
+      assert:
+        that:
+          - psi_probe_download_file_result.stat.exists
+
+    - name: Check deployment
+      uri:
+        url: http://localhost:8080/probe/
+        return_content: yes
+      until: psi_probe_deploy_result.status == 401
+      retries: 20
+      delay: 5
+      failed_when: no
+      changed_when: no
+      register: psi_probe_deploy_result
+
+    - name: Ensure psi-probe app was deployed
+      assert:
+        that:
+          - psi_probe_deploy_result.status == 401
