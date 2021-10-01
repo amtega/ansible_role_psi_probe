@@ -5,7 +5,7 @@
   gather_facts: no
   roles:
     - role: amtega.tomcat
-      tomcat_version: 8.0.9
+      tomcat_version: 9.0.44
       tomcat_name: tomcat
       tomcat_cms_roles:
         - manager-gui
