@@ -1,0 +1,24 @@
+---
+
+- name: Prepare
+  hosts: molecule_hosts
+  gather_facts: no
+  roles:
+    - role: amtega.tomcat
+      tomcat_version: 9.0.44
+      tomcat_name: tomcat
+      tomcat_cms_roles:
+        - manager-gui
+        - admin-gui
+        - manager-script
+        - manager-jmx
+        - manager-status
+      tomcat_cms_users:
+        - username: admin
+          password: admin
+          roles:
+            - admin-gui
+            - manager-gui
+            - manager-script
+            - manager-jmx
+            - manager-status

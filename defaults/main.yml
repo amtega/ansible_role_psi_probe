@@ -3,7 +3,7 @@
 
 # Version to deploy
 
-psi_probe_version: 3.0.0
+psi_probe_version: 3.5.0
 
 # Deployment name to use
 
@@ -31,7 +31,7 @@ psi_probe_artifact:
   type: maven
   group_id: com.github.psi-probe
   artifact_id: psi-probe-web
-  host: http://central.maven.org
+  host: https://repo1.maven.org
   path: /maven2
   extension: war
   version: "{{ psi_probe_version}}"
