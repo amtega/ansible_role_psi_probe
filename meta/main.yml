@@ -3,6 +3,7 @@
 
 galaxy_info:
   role_name: psi_probe
+  namespace: amtega
   author: José Enrique Mourón Regueira
   description: Deploy psi-probe-web application in tomcat instances
   company: AMTEGA - Xunta de Galicia
@@ -12,10 +13,11 @@ galaxy_info:
     - name: EL
       versions:
         - 7
+        - 8
     - name: Fedora
       versions:
-        - 29
-        - 30
+        - 33
+        - 34
   galaxy_tags:
     - tomcat
     - jee
@@ -28,7 +30,7 @@ dependencies:
     vars:
       check_platform_distributions:
         centos: 7
-        fedora: 30
+        fedora: 33
         redhat: 7
 
   - role: amtega.tomcat_application
