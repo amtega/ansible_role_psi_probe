@@ -74,6 +74,7 @@ provisioner:
     hosts:
       molecule_hosts:
         vars:
+          psi_probe_instances: ["tomcat"]
       molecule_hosts_fedora:
         vars:
           ansible_python_interpreter: /usr/bin/python3
