@@ -15,7 +15,7 @@
         - manager-status
       tomcat_cms_users:
         - username: admin
-          password: admin
+          password: admin       # pragma: allowlist secret
           roles:
             - admin-gui
             - manager-gui
