@@ -34,7 +34,7 @@ psi_probe_artifact:
   host: https://repo1.maven.org
   path: /maven2
   extension: war
-  version: "{{ psi_probe_version}}"
+  version: "{{ psi_probe_version }}"
   dest: webapps
   dest_file: "{{ psi_probe_name }}.war"
   validate_certs: no
